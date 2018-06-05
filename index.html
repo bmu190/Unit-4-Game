@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Crystals Collector</title>
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  
+	<script src="https://code.jquery.com/jquery.js"></script>
+	
+</head>
+<body style = background-image:url("assets/images/background.png")>
+
+	<div class="header">
+		<h1>Crystals Collector!	</h1>
+	</div>
+	<div class="instructions">
+		<h3>How to Play</h3>
+		</br>
+		
+		<P>You will be given a random number at the start of the game. There are four crystals below.
+			</P>
+				<ul id="blue">Blue</ul>
+				<ul id="green">Green</ul>
+				<ul id="red">Red</ul>
+				<ul id="yellow">Yellow</ul>
+			
+			<P>By clicking on a crystal, you will add a specific amount of points to your total score.
+			You win the game by matching your total score to the random number.
+			You lose the game if your total score goes above the random number.</p>
+
+			<P>The value of each crystal is hidden from you until you click on it.
+			Each time when the game starts, the game will change the values of each crystal.</p>
+		
+	</div>
+	<div class="numberToMatch">
+		<h2>Number To Match:<span id= "randomNumber"></span>
+		</h2>
+	</div>
+	<div class="winsAndLosses">
+		<h2>Wins:<span id= "numberWins"></span>
+			Losses:<span id= "numberLosses"></span>
+		</h2>
+	</div>
+
+	
+	<div class="Crystals">
+		<img src="assets/images/blue.png" class=Image id="one" alt="Blue Crys">
+		<img src="assets/images/green.png" class=Image id="two" alt="Green Crys">
+		<img src="assets/images/red.png" class=Image id= "three" alt="Red Crys">
+		<img src="assets/images/yellow.png" class=Image id= "four" alt="Yellow ">
+	</div>
+	<div class="Total">
+		<h2>Total Score:
+			<span id="endTotal"></span>
+		
+		</h2>
+	</div>
+  
+      <script type="text/javascript">
+
+        $( document ).ready(function(){
+      var Random=Math.floor(Math.random()*101+19)
+    
+
+      $('#randomNumber').text(Random);
+    
+      var num1= Math.floor(Math.random()*11+1)
+      var num2= Math.floor(Math.random()*11+1)
+      var num3= Math.floor(Math.random()*11+1)
+      var num4= Math.floor(Math.random()*11+1)
+
+      var userTotal= 0; 
+      var wins= 0;
+      var losses = 0;
+      
+    $('#numberWins').text(wins);
+    $('#numberLosses').text(losses);
+
+
+    function reset(){
+          Random=Math.floor(Math.random()*101+19);
+          console.log(Random)
+          $('#randomNumber').text(Random);
+          num1= Math.floor(Math.random()*11+1);
+          num2= Math.floor(Math.random()*11+1);
+          num3= Math.floor(Math.random()*11+1);
+          num4= Math.floor(Math.random()*11+1);
+          userTotal= 0;
+          $('#endTotal').text(userTotal);
+          } 
+
+    function Winner(){
+    alert("You won!");
+      wins++; 
+      $('#numberWins').text(wins);
+      reset();
+    }
+
+    function loser(){
+    alert ("You lose!");
+      losses++;
+      $('#numberLosses').text(losses);
+      reset()
+    }
+
+      $('#one').on ('click', function(){
+        userTotal = userTotal + num1;
+        console.log("New userTotal= " + userTotal);
+        $('#endTotal').text(userTotal); 
+              
+          if (userTotal == Random){
+          Winner();
+        }  
+            else if ( userTotal > Random){
+              loser();
+            }   
+      })  
+      $('#two').on ('click', function(){
+        userTotal = userTotal + num2;
+        console.log("New userTotal= " + userTotal);
+        $('#endTotal').text(userTotal); 
+            if (userTotal == Random){
+              Winner();
+            }
+            else if ( userTotal > Random){
+              loser();
+            } 
+      })  
+      $('#three').on ('click', function(){
+        userTotal = userTotal + num3;
+        console.log("New userTotal= " + userTotal);
+        $('#endTotal').text(userTotal);
+
+              if (userTotal == Random){
+              Winner();
+            }
+            else if ( userTotal > Random){
+              loser();
+            } 
+      })  
+      $('#four').on ('click', function(){
+        userTotal = userTotal + num4;
+        console.log("New userTotal= " + userTotal);
+        $('#endTotal').text(userTotal); 
+          
+              if (userTotal == Random){
+              Winner();
+            }
+            else if ( userTotal > Random){
+              loser();
+            }
+      });   
+    }); 
+
+    </script>
+    </body>
+    </html>	

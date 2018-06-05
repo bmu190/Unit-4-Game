@@ -1,0 +1,49 @@
+
+
+
+div{
+	background-color: rgb(173, 228, 241);
+	margin: 10px;
+	width: 25%
+}   
+    
+div{ 
+    border: solid 2px rgb(215, 231, 250);
+	padding: 10px;
+}
+
+
+h1, h3, span{
+	font-weight: bold;
+	text-align: center;
+}
+h1{
+	font-size: 30pt;
+
+}
+
+div.header, div.crystals{
+	background-color:rgb(173, 228, 241);
+}
+div.header, div.instructions{
+	width: 60%;
+}
+.numberToMatch, .winsAndLosses{
+	float: align-left;
+	width: 60%;
+	height: 60px;
+
+}
+
+#blue{
+	color: #1193da;
+}
+#green{
+	color: #00aa59;
+}
+#red{
+	color: #ec4b5f;
+}
+#yellow{
+	color: #e9ff25d3;
+}
